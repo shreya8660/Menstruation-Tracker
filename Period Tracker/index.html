@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="floating-emojis"></div>
+        <!-- Dashboard Page -->
+        <div class="page active" id="home">
+            <div class="status-bar">
+                <div class="time">..</div>
+                <div class="icons">
+                    <span class="signal">🫶 </span>
+                    <span class="wifi">💖</span>
+                    <span class="battery">👀 </span>
+                </div>
+            </div>
+            <div class="header">
+                <div class="greeting">
+                    Good Morning <span class="emoji">🌞</span>
+                </div>
+                <div class="calendar-icon" onclick="navigateTo('calendar')">
+                    <span>📅</span>
+                </div>
+            </div>
+            <div class="subheader">
+
+            </div>
+            <div class="week-days">
+                <div class="day">T</div>
+                <div class="day">F</div>
+                <div class="day">S</div>
+                <div class="day">S</div>
+                <div class="day">M</div>
+                <div class="day">T</div>
+                <div class="day">W</div>
+            </div>
+            <div class="dates">
+                <div class="date">16</div>
+                <div class="date">17</div>
+                <div class="date highlighted">18</div>
+                <div class="date highlighted">19</div>
+                <div class="date active">20</div>
+                <div class="date">21</div>
+                <div class="date">22</div>
+            </div>
+            <div class="cycle-info">
+                <div class="phase-circle transition-all">
+                    <div class="inner-circle">
+                        <div class="phase-label">Current Phase</div>
+                        <div class="phase-name">MENSTRUATION</div>
+                        <div class="cycle-length">Average Cycle Length</div>
+                        <div class="cycle-days">28 DAYS</div>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item active" data-page="home">
+                    <div class="nav-icon">🏠</div>
+                    <div class="nav-label">Home</div>
+                </div>
+                <div class="nav-item" data-page="calendar">
+                    <div class="nav-icon">📅</div>
+                    <div class="nav-label">Calendar</div>
+                </div>
+    
+                <div class="nav-item" data-page="profile">
+                    <div class="nav-icon">👤</div>
+                    <div class="nav-label">Profile</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Page -->
+        <div class="page" id="calendar">
+            <div class="calendar-page">
+                <div class="calendar-header">
+                    <div class="back-button" onclick="navigateTo('home')">← Menu</div>
+                    <div class="month-selector">
+                        <span class="month-prev" onclick="changeMonth(-1)">◀</span>
+                        <div>
+                            <span class="month-name">February</span>
+                            <span class="year">2020</span>
+                        </div>
+                        <span class="month-next" onclick="changeMonth(1)">▶</span>
+                    </div>
+                </div>
+                
+                <div class="calendar-legend">
+                    <div class="legend-item">
+                        <div class="legend-color blue-dot"></div>
+                        <div>Ovulation</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color pink-dot"></div>
+                        <div>Periods</div>
+                    </div>
+                </div>
+
+                <div id="calendar-display">
+                    <!-- Calendar will be dynamically generated here -->
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-item" data-page="home">
+                    <div class="nav-icon">🏠</div>
+                    <div class="nav-label">Home</div>
+                </div>
+                <div class="nav-item active" data-page="calendar">
+                    <div class="nav-icon">📅</div>
+                    <div class="nav-label">Calendar</div>
+                </div>
+               
+                <div class="nav-item" data-page="profile">
+                    <div class="nav-icon">👤</div>
+                    <div class="nav-label">Profile</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Profile Page -->
+        <div class="page" id="profile">
+            <div class="status-bar">
+                <div class="time">9:41</div>
+                <div class="icons">
+                    <span class="signal">🫶 </span>
+                    <span class="wifi">💖</span>
+                    <span class="battery">👀 </span>
+                </div>
+            </div>
+            <div class="header">
+                <div class="greeting">Profile</div>
+            </div>
+            <div class="profile-container">
+                <div class="profile-avatar">💁‍♀️</div>
+                <div class="profile-name-container">
+                    <input type="text" id="profile-name-input" value="Shreya.V" readonly />
+                </div>
+                
+                <div class="profile-info">
+                    <button id="edit-profile" class="edit-profile-button">Edit Profile</button>
+                    <div class="profile-item">
+                        <div class="profile-label">Age</div>
+                        <input type="number" class="profile-value" value="19" readonly />
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Height</div>
+                        <input type="text" class="profile-value" value="165 cm" readonly />
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Weight</div>
+                        <input type="text" class="profile-value" value="58 kg" readonly />
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Average Cycle</div>
+                        <input type="text" class="profile-value" value="28 days" readonly />
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">Average Period</div>
+                        <input type="text" class="profile-value" value="5 days" readonly />
+                    </div>
+                    
+                </div>
+               
+            </div>
+            <div class="bottom-nav1">
+                <div class="nav-item" data-page="home">
+                    <div class="nav-icon">🏠</div>
+                    <div class="nav-label">Home</div>
+                </div>
+                <div class="nav-item" data-page="calendar">
+                    <div class="nav-icon">📅</div>
+                    <div class="nav-label">Calendar</div>
+                </div>
+                
+                <div class="nav-item active" data-page="profile">
+                    <div class="nav-icon">👤</div>
+                    <div class="nav-label">Profile</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
